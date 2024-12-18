@@ -93,7 +93,7 @@ class Review (models.Model):
 
 
 class Booking(models.Model):
-   book_hotel = models.ForeignKey(Hotel, max_length=32, on_delete=models.CASCADE)
+   book_hotels = models.ForeignKey(Hotel, max_length=32, on_delete=models.CASCADE)
    book_room = models.ForeignKey(Room, max_length=32, on_delete=models.CASCADE)
    book_user= models.ForeignKey( UserProfile, max_length=32, on_delete=models.CASCADE)
    entered = models.DateTimeField(auto_now_add=True)
@@ -102,6 +102,6 @@ class Booking(models.Model):
    status = models.CharField(max_length=32, choices=STATUS_CHOICES, default='double room')
 
    def __str__(self):
-       return f'{self.book_hotel} - {self.book_room}'
+       return f'{self.book_hotels} - {self.book_room}'
 
 
